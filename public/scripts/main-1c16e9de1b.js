@@ -627,7 +627,6 @@ angular.module('confusionApp')
             return $resource(baseURL + "dishes/:id", null, {
                 'update': {
                     method: 'PUT',
-                    isArray: false
                 }
             });
 
