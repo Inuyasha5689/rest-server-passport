@@ -622,7 +622,7 @@ angular.module('confusionApp')
 'use strict';
 
 angular.module('confusionApp')
-    .constant("baseURL", "https://magicalexwuff:80/")
+    .constant("baseURL", "https://magicalexwuff.com:80/")
     .factory('menuFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
 
             return $resource(baseURL + "dishes/:id", null, {
