@@ -14,7 +14,7 @@ var mongoOptions =
     db: {safe: true},
     server: {
         socketOptions: {
-            keepAlive: 1
+            keepAlive: 3
         }
     }
 };
