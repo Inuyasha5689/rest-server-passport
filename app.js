@@ -9,8 +9,17 @@ var passport = require('passport');
 
 var authenticate = require('./authenticate');
 var config = require('./config');
+var mongoOptions =
+{
+    db: {safe: true},
+    server: {
+        socketOptions: {
+            keepAlive: 1
+        }
+    }
+};
 
-mongoose.connect(config.mongoUrl);
+mongoose.connect(config.mongoUrl, mongoOptions );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -27,13 +36,6 @@ var favoriteRouter = require('./routes/favoriteRouter');
 
 var app = express();
 
-//Secure traffic only
-app.all('*', function(req, res, next) {
-    if (req.secure) {
-        return next();
-    }
-    res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
