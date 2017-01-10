@@ -621,7 +621,7 @@ angular.module('confusionApp')
 
 'use strict';
 
-angular.module('confusionApp')
+angular.module('confusionApp', ['ngResource'])
     .constant("baseURL", "https://magicalexwuff.com:160/")
     .factory('menuFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
 
