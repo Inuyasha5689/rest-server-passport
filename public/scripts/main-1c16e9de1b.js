@@ -381,8 +381,7 @@ angular.module('confusionApp', ['ui.router', 'ngResource'])
                 url: 'favorites',
                 views: {
                     'content@': {
-                        templateUrl : 'views/favorites.html',
-                        controller  : 'FavoriteController'
+                        templateUrl : 'views/favorites.html'
                    }
                 }
             })
