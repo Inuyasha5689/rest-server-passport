@@ -37,7 +37,7 @@ server.on('listening', onListening);
 /**
  * Create HTTPS server.
  */ var options = {
-  key: fs.readFileSync(__dirname+'/private.key'),
+  key: fs.readFileSync(__dirname+'/magicalexwuff.key'),
   cert: fs.readFileSync(__dirname+'/certificate.pem')
 };
 
