@@ -626,7 +626,8 @@ angular.module('confusionApp')
 
             return $resource(baseURL + "dishes/:id", null, {
                 'update': {
-                    method: 'PUT'
+                    method: 'PUT',
+                    isArray: false
                 }
             });
 
@@ -637,7 +638,8 @@ angular.module('confusionApp')
 
         return $resource(baseURL + "leadership/:id", null, {
                 'update': {
-                    method: 'PUT'
+                    method: 'PUT',
+                    isArray: false
                 }
             });
 
@@ -647,7 +649,8 @@ angular.module('confusionApp')
 
         return $resource(baseURL + "promotions/:id", null, {
                 'update': {
-                    method: 'PUT'
+                    method: 'PUT',
+                    isArray: false
                 }
             });
 
