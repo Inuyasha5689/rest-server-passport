@@ -14,7 +14,7 @@ favoriteRouter.route('/')
         Favorites.find({
             "postedBy": userId
         })
-            .populate('postedBy dishes')
+            .populate('postedBy userId')
             .exec(function(err, favorite) {
                 if (err) next (err);
                 res.json(favorite);
