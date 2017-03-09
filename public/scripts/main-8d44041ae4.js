@@ -809,7 +809,7 @@ angular.module('confusionApp')
         };
     }])
 
-    .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $scope, $window, baseURL, ngDialog){
+    .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $scope, baseURL, ngDialog) {
 
         var authFac = {};
         var TOKEN_KEY = 'Token';
