@@ -439,7 +439,7 @@ angular.module('confusionApp')
 
         $scope.addToFavorites = function(dishid) {
           console.log('Add to favorites', dishid);
-          favoriteFactory.save({id: dishid});
+          favoriteFactory.save({_id: dishid});
           $scope.showFavorites = !$scope.showFavorites;
         };
 
@@ -661,7 +661,7 @@ angular.module('confusionApp')
         }
             
         $scope.openLogin = function () {
-            ngDialog.open({ template: 'views/loginModal.html', scope: $scope, className: 'ngdialog-theme-default', controller:"LoginController" });
+            ngDialog.open({ template: 'views/login.html', scope: $scope, className: 'ngdialog-theme-default', controller:"LoginController" });
         };
         
         $scope.logOut = function() {
