@@ -810,7 +810,7 @@ angular.module('confusionApp')
         };
     }])
 
-    .factory('authFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope','$window', 'baseURL', function($resource, $http, $localStorage, $rootScope, $scope, $window, baseURL){
+    .factory('authFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $scope, $window, baseURL, ngDialog){
 
         var authFac = {};
         var TOKEN_KEY = 'Token';
@@ -849,31 +849,31 @@ angular.module('confusionApp')
         }
 
         authFac.login = function(loginData) {
+        
+        $resource(baseURL + "users/login")
+        .save(loginData,
+           function(response) {
+              storeUserCredentials({username:loginData.username, token: response.token});
+              $rootScope.$broadcast('login:Successful');
+           },
+           function(response){
+              isAuthenticated = false;
+            
+              var message = '\
+                <div class="ngdialog-message">\
+                <div><h3>Login Unsuccessful</h3></div>' +
+                  '<div><p>' +  response.data.err.message + '</p><p>' +
+                    response.data.err.name + '</p></div>' +
+                '<div class="ngdialog-buttons">\
+                    <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click=confirm("OK")>OK</button>\
+                </div>';
+            
+                ngDialog.openConfirm({ template: message, plain: 'true'});
+           }
+        
+        );
 
-            $resource(baseURL + "users/login")
-            .save(loginData,
-                function(response) {
-                    storeUserCredentials({username:loginData.username, token: response.token});
-                    $rootScope.$broadcast('login:Successful');
-                },
-                function(response){
-                    isAuthenticated = false;
-
-                    var message = '\
-                    <div class="">\
-                    <div><h3>Login Unsuccessful</h3></div>' +
-                    '<div><p>' +  response.data.err.message + '</p><p>' +
-                        response.data.err.name + '</p></div>' +
-                        '<div class="">\
-                        <button dark outline type="button" ng-click=confirm("OK")>OK</button>\
-                        </div>';
-
-                        console.log(response.data.err.message);
-                }
-
-            );
-
-        };
+    };
 
         authFac.logout = function() {
             $resource(baseURL + "users/logout").get(function(response){
@@ -882,31 +882,32 @@ angular.module('confusionApp')
         };
 
         authFac.register = function(registerData) {
+        
+        $resource(baseURL + "users/register")
+        .save(registerData,
+           function(response) {
+              authFac.login({username:registerData.username, password:registerData.password});
+            if (registerData.rememberMe) {
+                $localStorage.storeObject('userinfo',
+                    {username:registerData.username, password:registerData.password});
+            }
+           
+              $rootScope.$broadcast('registration:Successful');
+           },
+           function(response){
+            
+              var message = '\
+                <div class="ngdialog-message">\
+                <div><h3>Registration Unsuccessful</h3></div>' +
+                  '<div><p>' +  response.data.err.message + 
+                  '</p><p>' + response.data.err.name + '</p></div>';
 
-            $resource(baseURL + "users/register")
-            .save(registerData,
-                function(response) {
-                    authFac.login({username:registerData.username, password:registerData.password});
-                    if (registerData.rememberMe) {
-                        $localStorage.storeObject('userinfo',
-                        {username:registerData.username, password:registerData.password});
-                    }
+                ngDialog.openConfirm({ template: message, plain: 'true'});
 
-                    $rootScope.$broadcast('registration:Successful');
-                },
-                function(response){
-
-                    var message = '\
-                    <div class="">\
-                    <div><h3>Registration Unsuccessful</h3></div>' +
-                    '<div><p>' +  response.data.err.message +
-                    '</p><p>' + response.data.err.name + '</p></div>';
-
-
-                }
-
-            );
-        };
+           }
+        
+        );
+    };
 
         authFac.isAuthenticated = function() {
             return isAuthenticated;
