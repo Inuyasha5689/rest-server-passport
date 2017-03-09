@@ -332,7 +332,7 @@ angular.module('confusionApp', ['ui.router', 'ngResource', 'ngDialog'])
                 views: {
                     'header': {
                         templateUrl: 'views/header.html',
-                        controller  : 'HeaderController'
+                        controller: 'HeaderController'
                     },
                     'content': {
                         templateUrl: 'views/home.html',
@@ -547,7 +547,7 @@ angular.module('confusionApp')
     }])
 
 
-    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'promotionFactory', function ($scope, menuFactory, corporateFactory, promotionFactory) {
+    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'promotionFactory',function ($scope, menuFactory, corporateFactory, promotionFactory) {
         $scope.showDish = false;
         $scope.showLeader = false;
         $scope.showPromotion = false;
@@ -662,7 +662,6 @@ angular.module('confusionApp')
         }
             
         $scope.openLogin = function () {
-          console.log('login');
             ngDialog.open({ template: 'views/login.html', scope: $scope, className: 'ngdialog-theme-default', controller:"LoginController" });
         };
         
