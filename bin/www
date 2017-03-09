@@ -37,8 +37,8 @@ server.on('listening', onListening);
 /**
  * Create HTTPS server.
  */ var options = {
-  key: fs.readFileSync(__dirname+'/magicalexwuff.key'),
-  cert: fs.readFileSync(__dirname+'/certificate.pem')
+  key: fs.readFileSync(__dirname+'/angular.magicalexwuff.com.key'),
+  cert: fs.readFileSync(__dirname+'/angular.magicalexwuff.com.cert')
 };
 
 var secureServer = https.createServer(options,app);
