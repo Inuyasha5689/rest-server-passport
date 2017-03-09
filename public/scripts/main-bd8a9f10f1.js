@@ -680,7 +680,7 @@ angular.module('confusionApp')
     
     }])
 
-    .controller('LoginController', ['$scope', '$localStorage', 'authFactory', function ($scope, $localStorage, authFactory) {
+    .controller('LoginController', ['$scope', '$localStorage', 'AuthFactory', function ($scope, $localStorage, authFactory) {
 
         $scope.loginData = $localStorage.getObject('userinfo','{}');
 
@@ -689,13 +689,13 @@ angular.module('confusionApp')
                 $localStorage.storeObject('userinfo',$scope.loginData);
             }
 
-            authFactory.login($scope.loginData);
+            AuthFactory.login($scope.loginData);
             $scope.closeLogin();
         };
 
     }])
 
-    .controller('RegisterController', ['$scope', '$localStorage', 'authFactory', function ($scope, $localStorage, authFactory) {
+    .controller('RegisterController', ['$scope', '$localStorage', 'AuthFactory', function ($scope, $localStorage, authFactory) {
 
         $scope.register={};
         $scope.loginData={};
@@ -703,7 +703,7 @@ angular.module('confusionApp')
         $scope.doRegister = function () {
             console.log('Doing registration', $scope.registration);
 
-            authFactory.register($scope.registration);
+            AuthFactory.register($scope.registration);
 
             $scope.closeRegister();
         };
