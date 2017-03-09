@@ -336,7 +336,7 @@ angular.module('confusionApp', ['ui.router', 'ngResource', 'ngDialog'])
                     },
                     'content': {
                         templateUrl: 'views/home.html',
-                        controller: 'IndexController'
+                        controller: 'HomeController'
                     },
                     'footer': {
                         templateUrl: 'views/footer.html'
@@ -547,7 +547,7 @@ angular.module('confusionApp')
     }])
 
 
-    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'promotionFactory',function ($scope, menuFactory, corporateFactory, promotionFactory) {
+    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'promotionFactory', function ($scope, menuFactory, corporateFactory, promotionFactory) {
         $scope.showDish = false;
         $scope.showLeader = false;
         $scope.showPromotion = false;
