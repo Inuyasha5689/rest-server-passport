@@ -15,22 +15,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main-3329707fae.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/scripts/main-3329707fae.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="2557" column="94" lean-forward="false" selection-start-line="2557" selection-start-column="94" selection-end-line="2557" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main-8d44041ae4.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/main-8d44041ae4.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="324" column="36" lean-forward="false" selection-start-line="324" selection-start-column="36" selection-end-line="324" selection-end-column="36" />
+              <folding>
+                <marker date="1489042205822" expanded="true" signature="207595:207984" ph="..." />
+                <marker date="1489042205822" expanded="true" signature="207834:207984" ph="..." />
+                <marker date="1489042205822" expanded="true" signature="208964:209158" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +104,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
               <caret line="29" column="61" lean-forward="false" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-              <folding />
+              <folding>
+                <marker date="1489041520122" expanded="true" signature="2095:2169" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2095:2191" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2270:3049" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2378:3039" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2415:3028" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2460:2780" ph="..." />
+                <marker date="1489041520122" expanded="false" signature="2535:2548" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2573:2761" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2825:2949" ph="..." />
+                <marker date="1489041520122" expanded="false" signature="2849:2862" ph="..." />
+                <marker date="1489041520122" expanded="true" signature="2994:3013" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,6 +137,9 @@
     <findStrings>
       <find>index</find>
       <find>IndexController</find>
+      <find>HomeCon</find>
+      <find>ngDialog</find>
+      <find>HeaderController</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,6 +152,8 @@
         <option value="$PROJECT_DIR$/public/views/contactus.html" />
         <option value="$PROJECT_DIR$/public/views/footer.html" />
         <option value="$PROJECT_DIR$/public/scripts/main-3329707fae.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/scripts/main-8d44041ae4.js" />
       </list>
     </option>
   </component>
@@ -359,12 +380,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489040142105</updated>
-      <workItem from="1489040143678" duration="886000" />
+      <workItem from="1489040143678" duration="2303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="886000" />
+    <option name="totallyTimeSpent" value="2303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1273" y="0" width="1294" height="1407" extended-state="0" />
@@ -444,7 +465,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="29" column="61" lean-forward="false" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-          <folding />
+          <folding>
+            <marker date="1489041520122" expanded="true" signature="2095:2169" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2095:2191" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2270:3049" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2378:3039" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2415:3028" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2460:2780" ph="..." />
+            <marker date="1489041520122" expanded="false" signature="2535:2548" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2573:2761" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2825:2949" ph="..." />
+            <marker date="1489041520122" expanded="false" signature="2849:2862" ph="..." />
+            <marker date="1489041520122" expanded="true" signature="2994:3013" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -480,6 +513,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/main-3329707fae.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="2578" column="45" lean-forward="true" selection-start-line="2578" selection-start-column="45" selection-end-line="2578" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -488,11 +529,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/main-3329707fae.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/main-8d44041ae4.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="2557" column="94" lean-forward="false" selection-start-line="2557" selection-start-column="94" selection-end-line="2557" selection-end-column="94" />
-          <folding />
+        <state relative-caret-position="51">
+          <caret line="324" column="36" lean-forward="false" selection-start-line="324" selection-start-column="36" selection-end-line="324" selection-end-column="36" />
+          <folding>
+            <marker date="1489042205822" expanded="true" signature="207595:207984" ph="..." />
+            <marker date="1489042205822" expanded="true" signature="207834:207984" ph="..." />
+            <marker date="1489042205822" expanded="true" signature="208964:209158" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
