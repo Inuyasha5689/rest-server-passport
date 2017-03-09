@@ -439,7 +439,7 @@ angular.module('confusionApp')
 
         $scope.addToFavorites = function(dishid) {
           console.log('Add to favorites', dishid);
-          favoriteFactory.save({_id: dishid});
+          favoriteFactory.save({id: dishid});
           $scope.showFavorites = !$scope.showFavorites;
         };
 
