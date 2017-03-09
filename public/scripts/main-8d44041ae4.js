@@ -706,7 +706,7 @@ angular.module('confusionApp')
 
     }])
 
-    .controller('RegisterController', ['$scope', '$localStorage', 'AuthFactory', function ($scope, $localStorage, AuthFactory) {
+    .controller('RegisterController', ['$scope', '$localStorage', 'ngDialog','AuthFactory', function ($scope, $localStorage, ngDialog,AuthFactory) {
 
         $scope.register={};
         $scope.loginData={};
