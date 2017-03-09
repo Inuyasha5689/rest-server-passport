@@ -8,11 +8,11 @@ var Verify = require('./verify');
 var favoriteRouter = express.Router();
 favoriteRouter.use(bodyParser.json());
 
-favoriteRouter.route('/favorites')
+favoriteRouter.route('/')
     .get(function(req, res, next) {
         var userId = req.decoded._id;
         Favorites.find({
-            postedBy:userId
+            "postedBy": userId
         })
             .populate('postedBy dishes')
             .exec(function(err, favorite) {
