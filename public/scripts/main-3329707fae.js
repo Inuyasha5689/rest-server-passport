@@ -328,18 +328,18 @@ angular.module('confusionApp', ['ui.router', 'ngResource'])
 
         // route for the home page
             .state('app', {
-                url: '/',
+                url:'/',
                 views: {
                     'header': {
-                        templateUrl: 'views/header.html',
+                        templateUrl : 'views/header.html',
                         controller  : 'HeaderController'
                     },
                     'content': {
-                        templateUrl: 'views/home.html',
-                        controller: 'IndexController'
+                        templateUrl : 'views/home.html',
+                        controller  : 'HomeController'
                     },
                     'footer': {
-                        templateUrl: 'views/footer.html'
+                        templateUrl : 'views/footer.html',
                     }
                 }
 
