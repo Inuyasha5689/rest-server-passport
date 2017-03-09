@@ -381,7 +381,8 @@ angular.module('confusionApp', ['ui.router', 'ngResource'])
                 url: 'favorites',
                 views: {
                     'content@': {
-                        templateUrl : 'views/favorites.html'
+                        templateUrl : 'views/favorites.html',
+                        controller  : 'FavoriteController'
                    }
                 }
             })
@@ -587,6 +588,94 @@ angular.module('confusionApp')
         $scope.leaders = corporateFactory.query();
 
     }])
+    
+    .controller('FavoriteController', ['$scope', '$state', 'favoriteFactory', function ($scope, $state, favoriteFactory) {
+
+        $scope.tab = 1;
+        $scope.filtText = '';
+        $scope.showDetails = false;
+        $scope.showDelete = false;
+        $scope.showMenu = false;
+        $scope.message = "Loading ...";
+    
+        favoriteFactory.query(
+            function (response) {
+                $scope.dishes = response.dishes;
+                $scope.showMenu = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            });
+    
+        $scope.select = function (setTab) {
+            $scope.tab = setTab;
+    
+            if (setTab === 2) {
+                $scope.filtText = "appetizer";
+            } else if (setTab === 3) {
+                $scope.filtText = "mains";
+            } else if (setTab === 4) {
+                $scope.filtText = "dessert";
+            } else {
+                $scope.filtText = "";
+            }
+        };
+    
+        $scope.isSelected = function (checkTab) {
+            return ($scope.tab === checkTab);
+        };
+    
+        $scope.toggleDetails = function () {
+            $scope.showDetails = !$scope.showDetails;
+        };
+    
+        $scope.toggleDelete = function () {
+            $scope.showDelete = !$scope.showDelete;
+        };
+        
+        $scope.deleteFavorite = function(dishid) {
+            console.log('Delete favorites', dishid);
+            favoriteFactory.delete({id: dishid});
+            $scope.showDelete = !$scope.showDelete;
+            $state.go($state.current, {}, {reload: true});
+        };
+    }])
+
+    .controller('HeaderController', ['$scope', '$state', '$rootScope', 'ngDialog', 'AuthFactory', function ($scope, $state, $rootScope, ngDialog, AuthFactory) {
+
+        $scope.loggedIn = false;
+        $scope.username = '';
+        
+        if(AuthFactory.isAuthenticated()) {
+            $scope.loggedIn = true;
+            $scope.username = AuthFactory.getUsername();
+        }
+            
+        $scope.openLogin = function () {
+            ngDialog.open({ template: 'views/login.html', scope: $scope, className: 'ngdialog-theme-default', controller:"LoginController" });
+        };
+        
+        $scope.logOut = function() {
+           AuthFactory.logout();
+            $scope.loggedIn = false;
+            $scope.username = '';
+        };
+        
+        $rootScope.$on('login:Successful', function () {
+            $scope.loggedIn = AuthFactory.isAuthenticated();
+            $scope.username = AuthFactory.getUsername();
+        });
+            
+        $rootScope.$on('registration:Successful', function () {
+            $scope.loggedIn = AuthFactory.isAuthenticated();
+            $scope.username = AuthFactory.getUsername();
+        });
+        
+        $scope.stateis = function(curstate) {
+           return $state.is(curstate);  
+        };
+    
+    }])
 
     .controller('LoginController', ['$scope', '$localStorage', 'authFactory', function ($scope, $localStorage, authFactory) {
 
@@ -677,6 +766,18 @@ angular.module('confusionApp')
         };
 
         return feedfac;
+    }])
+    
+    .factory('favoriteFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+
+
+    return $resource(baseURL + "favorites/:id", null, {
+            'update': {
+                method: 'PUT'
+            },
+            'query':  {method:'GET', isArray:false}
+        });
+
     }])
 
     .factory('$localStorage', ['$window', function ($window) {

@@ -8,7 +8,7 @@ var Verify = require('./verify');
 var favoriteRouter = express.Router();
 favoriteRouter.use(bodyParser.json());
 
-favoriteRouter.route('/')
+favoriteRouter.route('/favorites')
     .get(function(req, res, next) {
         var userId = req.decoded._id;
         Favorites.find({
