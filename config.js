@@ -1,6 +1,5 @@
  module.exports = {
      'secretKey': '12345-67890-09876-54321',
-     'mongoUrl' : 'mongo.magicalexwuff.com:27017/conFusion',
      'mongoUrl' : 'localhost:27017/conFusion',
       'facebook' : {
           clientID: '1073808765991669',
