@@ -403,7 +403,7 @@ angular.module('confusionApp', ['ui.router', 'ngResource'])
 'use strict';
 angular.module('confusionApp')
 
-    .controller('MenuController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
+    .controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', function ($scope, menuFactory, favoriteFactory) {
         $scope.tab = 1;
         $scope.filtText = '';
         $scope.showDetails = false;
