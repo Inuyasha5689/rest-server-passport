@@ -336,7 +336,7 @@ angular.module('confusionApp', ['ui.router', 'ngResource', 'ngDialog'])
                     },
                     'content': {
                         templateUrl: 'views/home.html',
-                        controller: 'HomeController'
+                        controller: 'IndexController'
                     },
                     'footer': {
                         templateUrl: 'views/footer.html'
