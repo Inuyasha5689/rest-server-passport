@@ -651,14 +651,14 @@ angular.module('confusionApp')
         };
     }])
 
-    .controller('HeaderController', ['$scope', '$state', '$rootScope', 'ngDialog', 'authFactory', function ($scope, $state, $rootScope, ngDialog, authFactory) {
+    .controller('HeaderController', ['$scope', '$state', '$rootScope', 'ngDialog', 'AuthFactory', function ($scope, $state, $rootScope, ngDialog, AuthFactory) {
 
         $scope.loggedIn = false;
         $scope.username = '';
         
-        if(authFactory.isAuthenticated()) {
+        if(AuthFactory.isAuthenticated()) {
             $scope.loggedIn = true;
-            $scope.username = authFactory.getUsername();
+            $scope.username = AuthFactory.getUsername();
         }
             
         $scope.openLogin = function () {
@@ -666,19 +666,19 @@ angular.module('confusionApp')
         };
         
         $scope.logOut = function() {
-           authFactory.logout();
+           AuthFactory.logout();
             $scope.loggedIn = false;
             $scope.username = '';
         };
         
         $rootScope.$on('login:Successful', function () {
-            $scope.loggedIn = authFactory.isAuthenticated();
-            $scope.username = authFactory.getUsername();
+            $scope.loggedIn = AuthFactory.isAuthenticated();
+            $scope.username = AuthFactory.getUsername();
         });
             
         $rootScope.$on('registration:Successful', function () {
-            $scope.loggedIn = authFactory.isAuthenticated();
-            $scope.username = authFactory.getUsername();
+            $scope.loggedIn = AuthFactory.isAuthenticated();
+            $scope.username = AuthFactory.getUsername();
         });
         
         $scope.stateis = function(curstate) {
@@ -687,7 +687,7 @@ angular.module('confusionApp')
     
     }])
 
-    .controller('LoginController', ['$scope', '$localStorage', 'authFactory', function ($scope, $localStorage, authFactory) {
+    .controller('LoginController', ['$scope', '$localStorage', 'AuthFactory', function ($scope, $localStorage, AuthFactory) {
 
         $scope.loginData = $localStorage.getObject('userinfo','{}');
 
@@ -696,13 +696,13 @@ angular.module('confusionApp')
                 $localStorage.storeObject('userinfo',$scope.loginData);
             }
 
-            authFactory.login($scope.loginData);
+            AuthFactory.login($scope.loginData);
             $scope.closeLogin();
         };
 
     }])
 
-    .controller('RegisterController', ['$scope', '$localStorage', 'authFactory', function ($scope, $localStorage, authFactory) {
+    .controller('RegisterController', ['$scope', '$localStorage', 'AuthFactory', function ($scope, $localStorage, AuthFactory) {
 
         $scope.register={};
         $scope.loginData={};
@@ -710,7 +710,7 @@ angular.module('confusionApp')
         $scope.doRegister = function () {
             console.log('Doing registration', $scope.registration);
 
-            authFactory.register($scope.registration);
+            AuthFactory.register($scope.registration);
 
             $scope.closeRegister();
         };
@@ -810,7 +810,7 @@ angular.module('confusionApp')
         };
     }])
 
-    .factory('authFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $scope, $window, baseURL, ngDialog){
+    .factory('AuthFactory', ['$resource', '$http', '$localStorage', '$rootScope', '$scope', '$window', 'baseURL', 'ngDialog', function($resource, $http, $localStorage, $rootScope, $scope, $window, baseURL, ngDialog){
 
         var authFac = {};
         var TOKEN_KEY = 'Token';
