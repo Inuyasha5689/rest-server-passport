@@ -437,6 +437,10 @@ angular.module('confusionApp')
             return ($scope.tab === checkTab);
         };
 
+        $scope.toggleFavorites = function () {
+          $scope.showFavorites = !$scope.showFavorites;
+        };
+
         $scope.toggleDetails = function () {
             $scope.showDetails = !$scope.showDetails;
         };
