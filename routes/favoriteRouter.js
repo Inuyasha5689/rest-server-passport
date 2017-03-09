@@ -9,10 +9,10 @@ var favoriteRouter = express.Router();
 favoriteRouter.use(bodyParser.json());
 
 favoriteRouter.route('/')
-    .get(function(req, res, next) {
+    .get(Verify.verifyOrdinaryUser, function(req, res, next) {
         var userId = req.decoded._id;
         Favorites.find({
-            postedBy: userId
+            postedBy:userId
         })
             .populate('postedBy userId')
             .exec(function(err, favorite) {
